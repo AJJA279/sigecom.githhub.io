@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIGECOM - Panel de Gestión</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand"><i class="fa-solid fa-mountain"></i><span>SIGECOM</span></div>
+        <div class="workspace-label">Espacio de trabajo</div>
+        <ul class="sidebar-nav">
+          <li><a href="#" class="nav-item active" data-target="inicio"><i class="fa-solid fa-house"></i> Inicio</a></li>
+          <li><a href="#" class="nav-item" data-target="clientes"><i class="fa-solid fa-users"></i> Panel de Clientes</a></li>
+          <li><a href="#" class="nav-item" data-target="proveedores"><i class="fa-solid fa-truck-field"></i> Panel de Proveedores</a></li>
+          <li><a href="#" class="nav-item" data-target="productos"><i class="fa-solid fa-boxes-stacked"></i> Productos</a></li>
+          <li><a href="#" class="nav-item" data-target="compras"><i class="fa-solid fa-cart-shopping"></i> Compras</a></li>
+          <li><a href="#" class="nav-item" data-target="ventas"><i class="fa-solid fa-chart-line"></i> Ventas</a></li>
+          <li><a href="#" class="nav-item" data-target="movimientos"><i class="fa-solid fa-right-left"></i> Movimientos</a></li>
+          <li><a href="#" class="nav-item" data-target="reportes"><i class="fa-solid fa-file-invoice-dollar"></i> Reportes</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="plan-card">
+          <div class="plan-title"><i class="fa-solid fa-scale-balanced" style="color: #00d2df;"></i> Plan gratuito</div>
+          <div class="plan-desc">Funciones esenciales.</div>
+        </div>
+        <div class="plan-card premium">
+          <div class="plan-title"><i class="fa-solid fa-crown" style="color: #fbbf24;"></i> Plan premium</div>
+          <div class="plan-desc">Almacenamiento ilimitado en sistema.</div>
+        </div>
+        <button id="btn-logout" class="btn-logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <main class="main-wrapper">
+      <header class="topbar">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="search" placeholder="Buscar movimientos o SKU..." id="global-search-input">
+        </div>
+        <div class="topbar-right">
+          <div style="position: relative;">
+            <button class="notification-btn" id="btn-alerts"><i class="fa-regular fa-bell"></i><span id="alerts-badge" style="display:none; position:absolute; top:-2px; right:-2px; background:#ef4444; color:#fff; font-size:0.65rem; border-radius:50%; width:14px; height:14px; text-align:center; line-height:14px;">0</span></button>
+            <div id="alerts-dropdown" class="alerts-dropdown-box" style="width: 320px;">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: #0b1e36; margin-bottom: 0.5rem;">Alertas del Sistema</h4>
+              <div id="alerts-list-content"><p style="font-size: 0.85rem; color: #64748b;">No hay alertas pendientes.</p></div>
+            </div>
+          </div>
+          <div class="user-profile">
+            <div class="user-avatar" id="user-initials">US</div>
+            <div class="user-info"><div class="user-name-text" id="sidebar-user-name">Usuario</div><div class="user-role-text">Administrador</div></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-area">
+        <!-- INICIO / MANUAL OPERATIVO -->
+        <section id="inicio" class="dashboard-section active">
+          <div class="section-header">
+            <div class="section-title-group">
+              <span>Manual Operativo y Normativa General</span>
+              <h1>Bienvenido a SIGECOM</h1>
+              <p>Sistema Integral de Gestión Comercial, Logística e Inventarios.</p>
+            </div>
+            <button class="btn-primary-action btn-global-modal">
+              <i class="fa-solid fa-plus"></i> Nuevo movimiento
+            </button>
+          </div>
+
+          <div class="generic-card" style="margin-bottom: 2rem; line-height: 1.7;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #0b1e36; margin-bottom: 1rem;">
+              <i class="fa-solid fa-book-open" style="color: #2563eb; margin-right: 8px;"></i> Normativa General de Operación y Uso del Sistema
+            </h3>
+            <p style="color: #475569; font-size: 0.92rem; margin-bottom: 1rem;">
+              <strong>SIGECOM</strong> opera bajo un modelo de arquitectura local optimizado para el control comercial estricto de comercios, tiendas de diseño y distribución. La integridad financiera y de stock depende del registro secuencial y coherente de las operaciones. A continuación, se detalla el marco normativo y la función operativa de cada módulo del sistema:
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 1.5rem;">
+              <div style="background: #f8fafc; padding: 1.25rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                <h4 style="font-size: 0.95rem; font-weight: 700; color: #0b1e36; margin-bottom: 0.5rem;"><i class="fa-solid fa-users" style="color: #2563eb; margin-right: 6px;"></i> 1. Panel de Clientes</h4>
+                <p style="font-size: 0.85rem; color: #64748b;">Módulo encargado de registrar la cartera comercial (Consumidores finales, minoristas y mayoristas). Almacena datos de contacto, direcciones y correos para vincularlos directamente a las transacciones de venta.</p>
+              </div>
+
+              <div style="background: #f8fafc; padding: 1.25rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                <h4 style="font-size: 0.95rem; font-weight: 700; color: #0b1e36; margin-bottom: 0.5rem;"><i class="fa-solid fa-truck-field" style="color: #2563eb; margin-right: 6px;"></i> 2. Panel de Proveedores y Catálogo</h4>
+                <p style="font-size: 0.85rem; color: #64748b;">Núcleo de abastecimiento. Al registrar un proveedor y su lista de artículos asociados, el sistema <strong>sincroniza automáticamente los productos hacia el inventario general</strong> de manera unificada.</p>
+              </div>
+
+              <div style="background: #f8fafc; padding: 1.25rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                <h4 style="font-size: 0.95rem; font-weight: 700; color: #0b1e36; margin-bottom: 0.5rem;"><i class="fa-solid fa-cart-shopping" style="color: #2563eb; margin-right: 6px;"></i> 3. Módulo de Compras</h4>
+                <p style="font-size: 0.85rem; color: #64748b;">Gestiona las órdenes de adquisición a proveedores. Si el estado de la orden se define como <em>Entregado</em>, el sistema incrementa de inmediato y de forma automática el stock físico de los artículos.</p>
+              </div>
+
+              <div style="background: #f8fafc; padding: 1.25rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                <h4 style="font-size: 0.95rem; font-weight: 700; color: #0b1e36; margin-bottom: 0.5rem;"><i class="fa-solid fa-chart-line" style="color: #2563eb; margin-right: 6px;"></i> 4. Módulo de Ventas</h4>
+                <p style="font-size: 0.85rem; color: #64748b;">Registra la salida comercial de mercancía. Al procesar una venta, se <strong>descuenta automáticamente el stock</strong> del inventario y se actualizan los indicadores globales de ingresos.</p>
+              </div>
+
+              <div style="background: #f8fafc; padding: 1.25rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                <h4 style="font-size: 0.95rem; font-weight: 700; color: #0b1e36; margin-bottom: 0.5rem;"><i class="fa-solid fa-right-left" style="color: #2563eb; margin-right: 6px;"></i> 5. Movimientos y Auditoría</h4>
+                <p style="font-size: 0.85rem; color: #64748b;">Bitácora cronológica que audita cada alta, modificación o transacción efectuada por el usuario activo, asegurando la trazabilidad completa de las acciones en la plataforma.</p>
+              </div>
+
+              <div style="background: #f8fafc; padding: 1.25rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                <h4 style="font-size: 0.95rem; font-weight: 700; color: #0b1e36; margin-bottom: 0.5rem;"><i class="fa-solid fa-file-invoice-dollar" style="color: #2563eb; margin-right: 6px;"></i> 6. Reportes y Balance Financiero</h4>
+                <p style="font-size: 0.85rem; color: #64748b;">Procesa los datos acumulados de ventas y compras efectivas para calcular de forma automatizada el balance neto de caja, ingresos y costos operativos.</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; padding: 1rem; background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px;">
+              <p style="font-size: 0.85rem; color: #1e40af; font-weight: 600;">
+                <i class="fa-solid fa-circle-info" style="margin-right: 5px;"></i> Nota de Persistencia: Todos los registros se resguardan de forma segura en el almacenamiento local de tu navegador. Mantén tus credenciales protegidas.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="clientes" class="dashboard-section">
+          <div class="section-header"><div class="section-title-group"><span>Directorio</span><h1>Panel de Clientes</h1></div><button class="btn-primary-action btn-global-modal"><i class="fa-solid fa-plus"></i> Nuevo movimiento</button></div>
+          <div class="generic-card"><table id="table-clientes"><thead><tr><th>ID</th><th>Nombre / Empresa</th><th>Tipo de Cliente</th><th>Teléfono</th><th>Correo Electrónico</th><th>Dirección</th><th>Acciones</th></tr></thead><tbody></tbody></table></div>
+        </section>
+
+        <section id="proveedores" class="dashboard-section">
+          <div class="section-header"><div class="section-title-group"><span>Cadena de suministro</span><h1>Panel de Proveedores</h1></div><button class="btn-primary-action btn-global-modal"><i class="fa-solid fa-plus"></i> Nuevo movimiento</button></div>
+          <div class="generic-card"><table id="table-proveedores"><thead><tr><th>ID</th><th>Proveedor</th><th>Rubro</th><th>Teléfono</th><th>Dirección</th><th>Correo Electrónico</th><th>Productos Ofrecidos</th><th>Acciones</th></tr></thead><tbody></tbody></table></div>
+        </section>
+
+        <section id="productos" class="dashboard-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <span>Inventario</span>
+              <h1>Productos</h1>
+            </div>
+            <button class="btn-primary-action btn-global-modal">
+              <i class="fa-solid fa-plus"></i> Nuevo movimiento
+            </button>
+          </div>
+          <div class="generic-card">
+            <table id="table-productos">
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>Producto</th>
+                  <th>Categoría</th>
+                  <th>Stock Actual</th>
+                  <th>P. Compra</th>
+                  <th>P. Venta</th>
+                  <th>Proveedor</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SECCIÓN DE COMPRAS DE LA VISTA PRINCIPAL (RESTABLECIDA) -->
+        <section id="compras" class="dashboard-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <span>Abastecimiento</span>
+              <h1>Compras</h1>
+            </div>
+            <button class="btn-primary-action btn-global-modal">
+              <i class="fa-solid fa-plus"></i> Nuevo movimiento
+            </button>
+          </div>
+          <div class="generic-card">
+            <table id="table-compras">
+              <thead>
+                <tr>
+                  <th>Nº Orden</th>
+                  <th>Proveedor</th>
+                  <th>Monto Total</th>
+                  <th>Estado Entrega</th>
+                  <th>Modalidad Logística</th>
+                  <th>Detalle / Acciones</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="ventas" class="dashboard-section">
+          <div class="section-header"><div class="section-title-group"><span>Comercial</span><h1>Ventas</h1></div><button class="btn-primary-action btn-global-modal"><i class="fa-solid fa-plus"></i> Nuevo movimiento</button></div>
+          <div class="generic-card"><table id="table-ventas"><thead><tr><th>ID Venta</th><th>Cliente</th><th>Tipo Cliente</th><th>Monto Total</th><th>Estado Pago</th><th>Saldo Adeudado</th><th>Fecha</th><th>Detalle / Acciones</th></tr></thead><tbody></tbody></table></div>
+        </section>
+
+        <section id="movimientos" class="dashboard-section">
+          <div class="section-header"><div class="section-title-group"><span>Logística y Stock</span><h1>Movimientos</h1></div></div>
+          <div class="generic-card"><table id="table-movimientos"><thead><tr><th>Fecha y Hora</th><th>Usuario</th><th>Tipo</th><th>Detalle / Operación</th></tr></thead><tbody></tbody></table></div>
+        </section>
+
+        <section id="reportes" class="dashboard-section">
+          <div class="section-header"><div class="section-title-group"><span>Análisis Financiero</span><h1>Reportes y Balance</h1></div></div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="generic-card" style="border-left: 4px solid #10b981;"><span style="font-size: 0.8rem; font-weight: 700; color: #64748b;">INGRESOS</span><h2 id="rep-ingresos" style="font-size: 1.6rem; font-weight: 800; color: #0b1e36;">$0</h2></div>
+            <div class="generic-card" style="border-left: 4px solid #ef4444;"><span style="font-size: 0.8rem; font-weight: 700; color: #64748b;">COMPRAS</span><h2 id="rep-compras" style="font-size: 1.6rem; font-weight: 800; color: #0b1e36;">$0</h2></div>
+            <div class="generic-card" style="border-left: 4px solid #3b82f6;"><span style="font-size: 0.8rem; font-weight: 700; color: #64748b;">BALANCE NETO</span><h2 id="rep-balance" style="font-size: 1.6rem; font-weight: 800; color: #0b1e36;">$0</h2></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL GENERAL -->
+  <div id="dynamic-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 750px;">
+      <div class="modal-header">
+        <div><span style="font-size: 0.75rem; color: #2563eb; font-weight: 700; text-transform: uppercase;">Registro</span><h3 id="modal-title">Nuevo movimiento</h3></div>
+        <button class="modal-close" id="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="dynamic-form">
+          <div class="modal-tabs" id="modal-tabs-container">
+            <button type="button" class="modal-tab-btn active" data-tab="Cliente">Cliente</button>
+            <button type="button" class="modal-tab-btn" data-tab="Proveedor">Proveedor</button>
+            <button type="button" class="modal-tab-btn" data-tab="Producto">Producto</button>
+            <button type="button" class="modal-tab-btn" data-tab="Compra">Compra</button>
+            <button type="button" class="modal-tab-btn" data-tab="Venta">Venta</button>
+          </div>
+
+          <!-- CONTENEDOR DE CAMPOS DEL MODAL -->
+          <div id="modal-fields-container" style="margin-top: 1.25rem;">
+            
+            <!-- PESTAÑA COMPRA DENTRO DEL MODAL -->
+            <div class="modal-tab-content" id="tab-compra" style="display: none;">
+              <div class="form-section-card">
+                <h3>Cabecera de Orden de Compra</h3>
+                <div class="form-group">
+                  <label>Nº de Orden *</label>
+                  <input type="text" id="val-compra-nro" value="OC-1922" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label>Proveedor *</label>
+                  <select id="val-compra-proveedor" class="form-control">
+                    <option value="">Seleccione un proveedor</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Estado de Entrega *</label>
+                  <select id="val-compra-estado" class="form-control">
+                    <option value="Pendiente de entrega">Pendiente de entrega</option>
+                    <option value="Entregado">Entregado</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Modalidad de Logística *</label>
+                  <select id="val-compra-logistica" class="form-control">
+                    <option value="Envio con transporte pagado">Envío con transporte pagado</option>
+                    <option value="Retiro en local">Retiro en local</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-section-card">
+                <h3>Productos a Comprar</h3>
+                <div class="form-group">
+                  <input type="text" id="val-compra-productos" class="form-control" placeholder="Seleccione un proveedor para cargar su catálogo." disabled />
+                </div>
+                <div class="text-right font-weight-bold" style="text-align: right;">
+                  <span>Gasto Total Estimado: <strong id="lbl-compra-total">$0</strong></span>
+                </div>
+              </div>
+
+              <div class="form-section-card">
+                <h3>📦 Detalle de Envío / Logística</h3>
+                <div class="form-group">
+                  <label>Tipo de Transporte</label>
+                  <select id="val-envio-tipo" class="form-control">
+                    <option value="Servicio de empresa">Servicio de empresa</option>
+                    <option value="Externo">Externo</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Transporte Asignado (Obligatorio) *</label>
+                  <input type="text" id="val-envio-transporte" class="form-control" placeholder="Ej. Logística Expreso" />
+                </div>
+                <div class="form-group">
+                  <label>Patente del Vehículo (Opcional)</label>
+                  <input type="text" id="val-envio-patente" class="form-control" placeholder="Ej. AA123CD" />
+                </div>
+                <div class="form-group">
+                  <label>Nombre del Chofer (Opcional)</label>
+                  <input type="text" id="val-envio-chofer" class="form-control" placeholder="Nombre completo" />
+                </div>
+                <div class="form-group">
+                  <label>Facturación del Viaje *</label>
+                  <select id="val-envio-facturacion" class="form-control">
+                    <option value="Abonado por el comprador">Abonado por el comprador</option>
+                    <option value="Abonado por el vendedor">Abonado por el vendedor</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Coste del Viaje ($)</label>
+                  <input type="number" id="val-envio-coste" class="form-control" value="0" />
+                </div>
+                <div class="form-group">
+                  <label>Comprobante (Archivo o Imagen)</label>
+                  <div class="file-input-wrapper">
+                    <input type="file" id="val-envio-comprobante" class="form-control-file" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PESTAÑA VENTA DENTRO DEL MODAL -->
+            <div class="modal-tab-content" id="tab-venta" style="display: none;">
+              <div class="form-section-card">
+                <h3>Cabecera de Venta</h3>
+                <div class="form-group">
+                  <label>ID Venta *</label>
+                  <input type="text" id="val-venta-id" value="V-3192" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label>Cliente *</label>
+                  <select id="val-venta-cliente" class="form-control">
+                    <option value="">Seleccione un cliente</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Estado de Pago *</label>
+                  <select id="val-venta-pago" class="form-control">
+                    <option value="Pagado en su totalidad">Pagado en su totalidad</option>
+                    <option value="Pendiente">Pendiente</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Modalidad de Logística *</label>
+                  <select id="val-venta-logistica" class="form-control">
+                    <option value="Envio con transporte pagado">Envío con transporte pagado</option>
+                    <option value="Retira en tienda">Retira en tienda</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-section-card">
+                <h3>Catálogo de Productos para Venta</h3>
+                <div class="form-group">
+                  <input type="text" id="val-venta-productos" class="form-control text-danger" value="No hay productos cargados en inventario." disabled />
+                </div>
+                <div class="text-right font-weight-bold" style="text-align: right;">
+                  <span>Monto Total Cobro: <strong id="lbl-venta-total">$0</strong></span>
+                </div>
+              </div>
+
+              <div class="form-section-card">
+                <h3>📦 Detalle de Envío / Logística</h3>
+                <div class="form-group">
+                  <label>Tipo de Transporte</label>
+                  <select id="val-venta-envio-tipo" class="form-control">
+                    <option value="Servicio de empresa">Servicio de empresa</option>
+                    <option value="Externo">Externo</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Transporte Asignado (Obligatorio) *</label>
+                  <input type="text" id="val-venta-envio-transporte" class="form-control" placeholder="Ej. Flete Express" />
+                </div>
+                <div class="form-group">
+                  <label>Patente del Vehículo (Opcional)</label>
+                  <input type="text" id="val-venta-envio-patente" class="form-control" placeholder="Ej. AA123CD" />
+                </div>
+                <div class="form-group">
+                  <label>Nombre del Chofer (Opcional)</label>
+                  <input type="text" id="val-venta-envio-chofer" class="form-control" placeholder="Nombre completo" />
+                </div>
+                <div class="form-group">
+                  <label>Facturación del Viaje *</label>
+                  <select id="val-venta-envio-facturacion" class="form-control">
+                    <option value="Abonado por el comprador">Abonado por el comprador</option>
+                    <option value="Abonado por el vendedor">Abonado por el vendedor</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Coste del Viaje ($)</label>
+                  <input type="number" id="val-venta-envio-coste" class="form-control" value="0" />
+                </div>
+                <div class="form-group">
+                  <label>Comprobante (Archivo o Imagen)</label>
+                  <div class="file-input-wrapper">
+                    <input type="file" id="val-venta-envio-comprobante" class="form-control-file" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn-modal-cancel" id="modal-cancel-btn">Cancelar</button>
+            <button type="submit" class="btn-modal-save" id="modal-save-btn">Guardar registro</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="detalle-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 520px;">
+      <div class="modal-header"><h3 id="detalle-modal-title">Detalle de Operación</h3><button class="modal-close" id="detalle-close-btn"><i class="fa-solid fa-xmark"></i></button></div>
+      <div class="modal-body" id="detalle-body-content" style="font-size: 0.9rem; color: #334155;"></div>
+    </div>
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

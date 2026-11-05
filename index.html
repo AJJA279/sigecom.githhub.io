@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIGECOM - Acceso Privado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    
+    <!-- TARJETA 1: TÉRMINOS Y CONDICIONES -->
+    <div id="terms-card" class="auth-card">
+      <div class="brand-header">
+        <div class="brand-icon">
+          <i class="fa-solid fa-mountain"></i>
+        </div>
+        <span class="brand-title">SIGECOM</span>
+      </div>
+
+      <div class="terms-content">
+        <span class="badge-private"><i class="fa-solid fa-lock"></i> Sistema de Gestión Privado</span>
+        <h2>Términos de Uso y Registro</h2>
+        
+        <p class="terms-description">
+          Bienvenido al entorno de gestión empresarial de SIGECOM. Para garantizar la seguridad y privacidad del sistema, lea atentamente las 
+          <a href="#" id="open-terms-modal" class="terms-highlight-link">condiciones de operación</a>:
+        </p>
+
+        <ul class="terms-list">
+          <li>
+            <i class="fa-solid fa-shield-halved"></i>
+            <div><strong>Acceso Restringido:</strong> Uso exclusivo para personal autorizado. Registro público deshabilitado.</div>
+          </li>
+          <li>
+            <i class="fa-solid fa-id-card"></i>
+            <div><strong>Credenciales:</strong> Usuario y contraseña personales e intransferibles otorgados por el administrador.</div>
+          </li>
+          <li>
+            <i class="fa-solid fa-microchip"></i>
+            <div><strong>Seguridad:</strong> Infraestructura digital y bases de datos protegidas bajo normas estrictas.</div>
+          </li>
+        </ul>
+
+        <div class="contact-notice">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <span>¿Necesitas asistencia técnica o una cuenta?</span>
+            <a href="mailto:sigecomoficial@gmail.com" class="contact-email">sigecomoficial@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="terms-checkbox-wrapper">
+          <label class="terms-checkbox-label">
+            <input type="checkbox" id="accept-terms-check">
+            <span>He leído y acepto los términos, condiciones de operación y el manejo de información tecnológica.</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="terms-actions">
+        <button id="btn-accept-terms" class="btn-primary-full" disabled>
+          Continuar al inicio de sesión <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- TARJETA 2: LOGIN -->
+    <div id="login-card" class="auth-card" style="display: none;">
+      <div class="brand-header">
+        <div class="brand-icon">
+          <i class="fa-solid fa-mountain"></i>
+        </div>
+        <span class="brand-title">SIGECOM</span>
+      </div>
+
+      <div class="login-header">
+        <h2>Iniciar Sesión</h2>
+        <p>Ingresa tus credenciales autorizadas para acceder al sistema.</p>
+      </div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label for="login-username" class="input-label">Nombre de usuario</label>
+          <div class="input-wrapper">
+            <i class="fa-regular fa-user input-icon"></i>
+            <input type="text" id="login-username" class="modal-input" placeholder="Ej. augusto" required autocomplete="username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="login-password" class="input-label">Contraseña</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" id="login-password" class="modal-input" placeholder="••••••••" required autocomplete="current-password">
+          </div>
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" id="remember-check">
+            <span>Mantener sesión iniciada</span>
+          </label>
+        </div>
+
+        <div id="login-error" class="error-banner" style="display: none;">
+          <i class="fa-solid fa-circle-exclamation"></i> Usuario o contraseña incorrectos.
+        </div>
+
+        <button type="submit" class="btn-primary-full">
+          Ingresar al sistema <i class="fa-solid fa-right-to-bracket"></i>
+        </button>
+      </form>
+
+      <div class="contact-notice login-contact-notice">
+        <i class="fa-solid fa-envelope"></i>
+        <div>
+          <span>¿Asistencia técnica?</span>
+          <a href="mailto:sigecomoficial@gmail.com" class="contact-email">sigecomoficial@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="login-footer">
+        <button id="btn-back-terms" class="btn-link">
+          <i class="fa-solid fa-chevron-left"></i> Volver a los términos de uso
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL LEGAL -->
+  <div id="terms-modal" class="legal-modal-overlay" style="display: none;">
+    <div class="legal-modal-content">
+      <div class="legal-modal-header">
+        <h3><i class="fa-solid fa-file-contract"></i> Condiciones de Operación</h3>
+        <button id="close-terms-modal" class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="legal-modal-body">
+        <h4>1. Disposiciones Generales</h4>
+        <p>SIGECOM es un sistema informático privado de gestión comercial y control de inventarios de uso exclusivo autorizado.</p>
+        <h4>2. Privacidad y Confidencialidad</h4>
+        <p>Toda información comercial y financiera ingresada es confidencial. Queda prohibida su exportación no autorizada.</p>
+        <h4>3. Responsabilidad</h4>
+        <p>Las credenciales son personales e intransferibles. El titular responde por todas las acciones bajo su sesión.</p>
+        <h4>4. Manejo Tecnológico</h4>
+        <p>Está prohibida cualquier alteración o inyección de código que comprometa la estabilidad del entorno local.</p>
+      </div>
+      <div class="legal-modal-footer">
+        <button id="btn-accept-modal" class="btn-primary-full">Entendido, cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="auth-ui.js"></script>
+</body>
+</html>
